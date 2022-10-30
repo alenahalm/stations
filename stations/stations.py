@@ -34,13 +34,3 @@ class Station:
                         if self.points[i].triangle_area(self.points[j], self.points[k]) < area:
                             area = self.points[i].triangle_area(self.points[j], self.points[k])
         return area
-
-file = json.load(open('stations.json'))
-st = Station()
-for i in file:
-    try:
-        st.add_station(Point(float(i["location"]["lat"]), float(i["location"]["lon"])))
-    except:
-        pass
-print('Calculating')
-print('smallest area is', st.min_area())
